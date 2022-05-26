@@ -1,0 +1,89 @@
+import java.util.ArrayList;
+
+/**
+ *
+ * @author Mauricio,Isablea,Samuel
+ */
+public class Dato {
+
+    private String estacion;
+    private String nombre;
+    private String fecha; 
+    private double lluvia;
+    private double tempPromedio;  
+    public static ArrayList <Dato>  marcoDeDatosArreglo =new ArrayList <Dato>();
+
+    // Este metodo es un constructor vacio, utilizado para recibir ciertos datos al momento de instanciar
+    public Dato(String fecha, String lluvia, String tempPromedio) {
+        setFecha(fecha);
+        setLluvia(lluvia);
+        setTempPromedio(tempPromedio);
+        
+    }
+    // Este metodo es un constructor vacio; uilizado para intanciar esta clase sin recibir ningun dato
+    public Dato() {
+    }
+    
+    //Este metodo recibe un string y lo asigna a el atributo correspondiente
+    public void setEstacion(String estacion) {
+        this.estacion = estacion;
+    }
+    
+    //Este metodo recibe un string y lo asigna a el atributo correspondiente
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    //Este metodo recibe un string y lo asigna a el atributo correspondiente
+    public void setFecha(String fecha) {
+        fecha=fecha.replaceAll("\"", "");
+        this.fecha = fecha;
+    }
+    
+     // cambia el string a un double y verifica si es vacio, y luego le aigna el valor correspondiente a temperatura minima
+    public void setLluvia(String lluvia) {
+    lluvia=lluvia.replaceAll("\"", "");
+    if(lluvia==""){
+            lluvia="100";
+        }
+        double temp= Double.parseDouble(lluvia);
+        this.lluvia=temp;
+    }
+    
+    // cambia el string a un double y verifica si es vacio, y luego le aigna el valor correspondiente a temperatura minima
+    public void setTempPromedio(String  tempPromedio) {
+        tempPromedio=tempPromedio.replaceAll("\"", "");
+        if(tempPromedio==""){
+            tempPromedio="100";
+        }
+        double temp= Double.parseDouble(tempPromedio);
+        this.tempPromedio=temp;
+    }
+    
+    //Se encarga de retornar el atributo estación
+    public String getEstacion() {
+        return estacion;
+    }
+    
+    //Se encarga de retornar el atributo nombre
+    public String getNombre() {
+        return nombre;
+    }
+    
+    //Se encarga de retornar el atributo fecha
+    public String getFecha() {
+        return fecha;
+    }
+
+    //Se encarga de retornar el atributo lluvia
+    public double getLluvia() {
+        return lluvia;
+    }
+    
+    //Se encarga de retornar el atributo promedio
+    public double getTempPromedio() {
+        return tempPromedio;
+    }
+
+    
+}
