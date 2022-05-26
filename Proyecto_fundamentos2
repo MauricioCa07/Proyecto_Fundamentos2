@@ -1,0 +1,212 @@
+import java.util.Scanner;
+   
+/**
+ *
+ * @author Mauricio,Isablea,Samuel
+ */
+
+public class Proyecto_fundamentos2 {
+    
+    static Scanner teclado=new Scanner(System.in);
+    
+    //este el metodo principal del cual se llama a los demas metodos de la misma clase segun el archivo que se desee leer
+    public static void main(String[] args) {
+          System.out.println("-------------------------------------------------------------------\n"
+            + "------------------------  Bienvenido ------------------------------\n"
+            + "-------------------------------------------------------------------\n");
+          System.out.println("A continuación podra seleccionar el archivo sobre el que desea trabajar:\n"
+                  + "1.Bogota.csv\n"
+                  + "2.Medellin.csv\n"
+                  + "3.1719435.csv\n");
+          System.out.println("Presione 1,2 o 3 segun como lo prefiera\n"
+                  + "-------------------------------------------------------------------");
+          
+          int x=teclado.nextInt();
+          switch(x){
+              case 1:
+                  marcoDeDato.leerArchivos1();
+                  menu();
+                  break;
+              case 2:   
+                  marcoDeDato.leerArchivos2();
+                  menu();
+                  break;
+              case 3:
+                  marcoDeDato.leerArchivos3();
+                  menu();
+                  break;
+                  
+          }
+           
+}
+  
+    //Este metodo se encarga de mostrar el primer menu
+    public static void menu(){
+        
+        
+            
+            while(true){
+                System.out.println("-------------------------------------------");
+                System.out.println("Este programa cuenta 2 tipos de operaciones:\n"
+                    + "1.Operaciones de filtro\n"
+                    + "2.Operaciones Estadisticas\n"
+                    + "Con cual opción desea proceder?");
+                int x=teclado.nextInt();
+                System.out.println("-------------------------------------------");
+            switch(x){
+                case 1:
+                    operacionesFiltro();
+                    break;
+                case 2:
+                    operacionesEstadisticas();
+                    break;     
+            }
+           
+    }
+    
+}
+
+    //Este metodo se encarga de todas las operaciones que son de tipo filtro
+    public static void operacionesFiltro(){
+        System.out.println("------------------------------------------------------------"
+                + "\n Seleccionaste Operaciones de filtro\n"
+                            + "Aqui tienes disponibles las siquientes acciones:\n"
+                            + "1.Mostrar aquellos dias cuya temperatura promedio sea menor a la que decidas\n"
+                            + "2.Mostrar aquellos dias cuya temperatura promedio sea mayor a la que decidas\n"
+                            + "3.Mostrar aquellos dias cuya temperatura promedio sea menor o igual a la que decidas\n"
+                            + "4.Mostrar aquellos dias cuya temperatura promedio sea mayor o igual  a la que decidas\n"
+                            + "5.Mostrar aquellos dias cuya temperatura promedio sea igual  a la que decidas\n"
+                            + "6.volvera al menu anterior\n");
+                    System.out.println("Con cual opción deseas proceder?");
+                    int j=teclado.nextInt();
+                    System.out.println("------------------------------------------------------------\n");
+                    op:    
+                switch(j){
+                    case 1:
+                        System.out.println("Cual desea que sea el numero filtro?");
+                        double numf=teclado.nextDouble();
+                        for(int i=0;i<Dato.marcoDeDatosArreglo.size();i++){
+                            if(Dato.marcoDeDatosArreglo.get(i).getTempPromedio() != 100){
+                            if(numf>Dato.marcoDeDatosArreglo.get(i).getTempPromedio()){
+                                System.out.println(Dato.marcoDeDatosArreglo.get(i).getFecha()+ " Este dia la temperatura promedio fue de: "+ Dato.marcoDeDatosArreglo.get(i).getTempPromedio());
+                            }
+                        }
+                        }
+                        break;
+                     
+                    case 2:
+                        System.out.println("Cual desea que sea el numero filtro?");
+                        double numtemp=teclado.nextDouble();
+                        for(int i=0;i<Dato.marcoDeDatosArreglo.size();i++){
+                             if(Dato.marcoDeDatosArreglo.get(i).getTempPromedio() != 100){
+                            if(numtemp<Dato.marcoDeDatosArreglo.get(i).getTempPromedio()){
+                                System.out.println(Dato.marcoDeDatosArreglo.get(i).getFecha()+ " Este dia la temperatura promedio fue de: "+ Dato.marcoDeDatosArreglo.get(i).getTempPromedio());
+                            }
+                        }
+                        }
+                        break;
+                     
+                    case 3:
+                         System.out.println("Cual desea que sea el numero filtro?");
+                        double numtemp2=teclado.nextDouble();
+                        for(int i=0;i<Dato.marcoDeDatosArreglo.size();i++){
+                             if(Dato.marcoDeDatosArreglo.get(i).getTempPromedio() != 100){
+                            if(numtemp2>=Dato.marcoDeDatosArreglo.get(i).getTempPromedio()){
+                                System.out.println(Dato.marcoDeDatosArreglo.get(i).getFecha()+ " Este dia la temperatura promedio fue de: "+ Dato.marcoDeDatosArreglo.get(i).getTempPromedio());
+                            }
+                        }
+                        }
+                        break;
+                    case 4:
+                        System.out.println("Cual desea que sea el numero filtro?");
+                        double numtemp3=teclado.nextDouble();
+                        for(int i=0;i<Dato.marcoDeDatosArreglo.size();i++){
+                             if(Dato.marcoDeDatosArreglo.get(i).getTempPromedio() != 100){
+                            if(numtemp3<=Dato.marcoDeDatosArreglo.get(i).getTempPromedio()){
+                                System.out.println(Dato.marcoDeDatosArreglo.get(i).getFecha()+ " Este dia la temperatura promedio fue de: "+ Dato.marcoDeDatosArreglo.get(i).getTempPromedio());
+                            }
+                             }
+                        }
+                        break;       
+                        
+                    case 5:
+                       System.out.println("Cual desea que sea el numero filtro?");
+                        double numtemp4=teclado.nextDouble();
+                        for(int i=0;i<Dato.marcoDeDatosArreglo.size();i++){
+                             if(Dato.marcoDeDatosArreglo.get(i).getTempPromedio() != 100){
+                            if(numtemp4==Dato.marcoDeDatosArreglo.get(i).getTempPromedio()){
+                                System.out.println(Dato.marcoDeDatosArreglo.get(i).getFecha()+ " Este dia la temperatura promedio fue de: "+ Dato.marcoDeDatosArreglo.get(i).getTempPromedio());
+                            }
+                             }
+                        }
+                        break;      
+                    case 6:
+                        break op;
+                }
+    }
+    
+    //Este metodo se encarga de todas las operaciones que son de tipo estadisticas
+    public static void operacionesEstadisticas(){
+        System.out.println("------------------------------------------------------------\n"
+                + "Seleccionaste operaciones estadisticas\n"
+                + "Estas son las opciones disponibles\n"
+                + "1.contara la cantidad de datos almacenados en este archivo\n"
+                + "2.Se mostrara por pantalla el dia cuya temperatura promedio fue la menor\n"
+                + "3.Se mostrara por pantalla el dia cuya temperatura promedio fue la mayor\n"
+                + "4.Se mostrara el promedio en todos las temperaturas promedio\n"
+                + "5.Volvera al menú inicial\n"
+                + "");
+        int p=teclado.nextInt();
+        System.out.println("------------------------------------------------------------\n");
+        
+        op2:
+        switch(p){
+            case 1:
+                int cont=0;
+                for(int i=0;i<Dato.marcoDeDatosArreglo.size();i++){
+                     if(Dato.marcoDeDatosArreglo.get(i).getTempPromedio() != 100){
+                    cont++;
+                     }
+                }
+                System.out.println("La cantidad de total de datos en las mediciones es de: "+cont);
+                break;
+            case 2:
+                Dato d1=Dato.marcoDeDatosArreglo.get(0);
+                for(int i=0;i<Dato.marcoDeDatosArreglo.size();i++){
+                     if(Dato.marcoDeDatosArreglo.get(i).getTempPromedio() != 100){
+                    if(d1.getTempPromedio()>Dato.marcoDeDatosArreglo.get(i).getTempPromedio()){
+                        d1=Dato.marcoDeDatosArreglo.get(i);
+                    }
+                     }
+                }
+                System.out.println("El dia con la menor temperatura promedio fue "+ d1.getFecha() +" con una temperatura de: "+d1.getTempPromedio());
+                break;
+            case 3:
+                Dato d2=Dato.marcoDeDatosArreglo.get(0);
+                for(int i=0;i<Dato.marcoDeDatosArreglo.size();i++){
+                     if(Dato.marcoDeDatosArreglo.get(i).getTempPromedio() != 100){
+                    if(d2.getTempPromedio()<Dato.marcoDeDatosArreglo.get(i).getTempPromedio()){
+                        d2=Dato.marcoDeDatosArreglo.get(i);
+                    }
+                }
+                }
+                System.out.println("El dia con la mayor temperatura promedio fue "+ d2.getFecha() +" con una temperatura de: "+d2.getTempPromedio());
+                break;
+                
+            case 4:
+                double suma=0;
+                int datos=0;
+                for(int i=0;i<Dato.marcoDeDatosArreglo.size();i++){
+                     if(Dato.marcoDeDatosArreglo.get(i).getTempPromedio() != 100){
+                    suma+=Dato.marcoDeDatosArreglo.get(i).getTempPromedio();
+                    datos++;
+                }
+                }
+                System.out.println("el promedio de todas las temperaturas profemio es de: "+String.format("%.2f",(suma/datos)));
+                
+            case 5:
+                break op2;
+        }
+            
+    }
+}
