@@ -1,0 +1,61 @@
+import java.io.*;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
+/**
+ *
+ * @author Mauricio,Isablea,Samuel
+ */
+
+public class marcoDeDato {
+  
+    //Este metodo lee el archivo Bogota.csv y lo agrega a un arraylist asignandole sus correspondientes atributos
+    public static void leerArchivos1(){
+        try { 
+            BufferedReader br = new BufferedReader(new FileReader("Bogota.csv"));  
+            br.readLine();
+            String line;
+        while((line = br.readLine())!= null){
+            String[] lineas=line.split(",");
+            Dato d2 = new Dato(lineas[3],lineas[4],lineas[5]);
+            Dato.marcoDeDatosArreglo.add(d2);
+         }
+        } catch (Exception ex) {
+            Logger.getLogger(marcoDeDato.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }
+    
+    //Este metodo lee el archivo Medellin.csv  y lo agrega a un arraylist asignandole sus correspondientes atributos
+    public static void leerArchivos2(){
+        try { 
+            BufferedReader br = new BufferedReader(new FileReader("Medellin.csv"));  
+            br.readLine();
+            String line;
+        while((line = br.readLine())!= null){
+            String[] lineas=line.split(",");
+            Dato d2 = new Dato(lineas[3],lineas[4],lineas[5]);
+            Dato.marcoDeDatosArreglo.add(d2);
+         }
+        } catch (Exception ex) {
+            Logger.getLogger(marcoDeDato.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }
+    
+    //Este metodo lee el archivo 1719435.csv y lo agrega a un arraylist asignandole sus correspondientes atributos
+    public static void leerArchivos3(){
+        try { 
+            BufferedReader br = new BufferedReader(new FileReader("1719435.csv"));  
+            br.readLine();
+            String line;
+        while((line = br.readLine())!= null){
+            String[] lineas=line.split(",");
+            Dato d2 = new Dato(lineas[3],lineas[4],lineas[5]);
+            Dato.marcoDeDatosArreglo.add(d2);
+         }
+        } catch (Exception ex) {
+            Logger.getLogger(marcoDeDato.class.getName()).log(Level.SEVERE, null, ex);
+        }   
+    }
+    
+}
+      
